@@ -1,0 +1,134 @@
+🚀 Containerization & Docker Notes
+
+## What is Containerization?
+
+Containerization is a method used to package an application along with all its dependencies into a single unit called a container.
+
+In simple words, I can package the application once and run it anywhere without dependency issues.
+
+The container includes:
+* Application code
+* Libraries
+* Dependencies
+* Runtime environment
+
+This helps the application work consistently in every environment.
+
+## Why Do We Need Containerization?
+
+* Before containerization, developers faced problems like:
+* “It works on my machine, but not on another system.”
+
+Reasons:
+* Different OS versions
+* Missing dependencies
+* Configuration mismatch
+* Library version conflicts
+
+*I understood that manual setup becomes difficult when applications are deployed on multiple systems.
+
+*Containerization solves this by creating the same environment everywhere.
+
+
+## What is Docker?
+
+Docker is an open-source platform used for containerization.
+
+It helps developers:
+
+* Create containers
+* Run containers
+* Manage containers easily
+
+*Instead of manually configuring applications,Docker packages everything together and runs it consistently.
+
+## Why I Learned Docker
+
+I learned Docker because:
+
+* It simplifies deployment
+* It creates consistent environments
+* It is lightweight and fast
+* It is widely used in DevOps
+
+👉 “Build once, run anywhere”
+
+
+## How Docker Works
+
+Flow:
+
+*Application + Dependencies
+↓
+*Docker Image
+↓
+*Docker Container
+↓
+*Application Runs Anywhere
+
+
+## Important Docker Components
+
+### Docker Image
+
+A template used to create containers.
+
+### Docker Container
+
+A running instance of a Docker image.
+
+### Dockerfile
+
+A file containing instructions to build a Docker image.
+
+### Docker Hub
+
+An online repository used to store and share Docker images.
+
+
+## Containers vs Virtual Machines
+
+### Virtual Machines
+
+* Heavyweight
+* Require full operating system
+* Slow startup
+
+### Containers
+
+* Lightweight
+* Share host operating system
+* Faster and efficient
+
+I realized containers use fewer resources and start much faster.
+
+
+## Docker Workflow I Implemented
+
+In this project, I implemented a complete Docker workflow by containerizing a simple Python application.
+
+What I did:
+
+- Created a simple Python application (`app.py`)
+- Wrote a `Dockerfile` to define the container setup
+- Built a Docker image using `docker build`
+- Ran the application inside a Docker container
+- Verified images and running containers
+- Tagged the Docker image and pushed to Docker Hub repository
+
+## Key Benefit I Realized
+
+*Instead of manually setting up applications on every system, I can create one Docker image and run it anywhere.
+*This helps avoid dependency and environment issues.
+
+## Final Thought
+
+Docker helped me understand how modern applications are deployed efficiently.
+
+Main advantages I learned:
+
+* Consistency
+* Portability
+* Faster deployment
+* Scalability
+* Better resource utilization
