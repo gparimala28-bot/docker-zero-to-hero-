@@ -1,0 +1,58 @@
+🚀 Multi-Stage Docker Builds
+
+In this hands-on project, I learned how Multi-Stage Docker Builds help create smaller, optimized, and production-ready Docker images.
+
+## why Multi-Stage docker builds 
+
+Initially, I understood that when we use normal Docker builds, the final image often becomes very large because it contains unnecessary components such as:
+•	build tools 
+•	compilers 
+•	package managers 
+•	caches 
+•	temporary files 
+•	Linux utilities 
+Even though the application only needs the runtime to execute, all build dependencies remain inside the final image.
+This creates several production problems like:
+•	slow deployments 
+•	larger storage usage 
+•	increased security vulnerabilities 
+•	slower CI/CD pipelines 
+•	slower container startup time 
+ **To solve this, I implemented Multi-Stage Docker Builds.
+
+*** What I implemented 
+
+    •	Created a simple Node.js application 
+    •	Wrote a multi-stage Dockerfile 
+    •	Used one stage as the builder stage 
+    •	Installed dependencies and built the application in the builder stage 
+    •	Used a lightweight runtime image (node:alpine) in the final stage 
+    •	Copied only the required application files into the runtime stage 
+    •	Built and tested the Docker image
+
+***What I Learned
+
+    I learned that Multi-Stage Docker Builds separate:
+    •	build environment 
+    •	runtime environment 
+ The builder stage contains all development tools required to build the application.
+ The runtime stage contains only:
+    •	application files 
+    •	runtime dependencies 
+ Everything else is discarded.
+ This significantly reduces Docker image size and improves efficiency.
+
+***Key Understanding
+
+I realized that production containers should contain only what is required to run the application.
+Using multi-stage builds helps:
+    •	reduce image size 
+    •	improve security 
+    •	optimize deployments 
+    •	improve startup performance 
+    •	create cleaner production images 
+
+***Final Outcome
+
+After implementing multi-stage builds, I was able to create a smaller and cleaner Docker image compared to a normal Docker build.
+This hands-on practice helped me better understand real-world Docker optimization techniques used in DevOps and production environments.
