@@ -1,0 +1,91 @@
+# 🚀 Docker Persistent Storage Using Volumes
+
+# Overview
+
+Containers are ephemeral by nature.This means:
+* Containers can stop anytime
+* Containers can be deleted anytime
+* Internal container data is temporary
+
+When a container is removed:
+❌ Logs disappear
+❌ Generated files disappear
+❌ Application data is lost
+
+This creates storage persistence problems in real-world applications.
+
+## 🧠 Core Concept
+
+Instead of storing data inside containers,Docker stores important data externally using:
+* Bind Mounts
+* Docker Volumes
+This ensures data survives even after container deletion.
+
+
+# 🏗️ Persistent Storage Flow
+
+Container Running
+↓
+Application Writes Data
+↓
+Data Stored in Docker Volume
+↓
+Container Deleted
+↓
+Volume Still Exists
+↓
+Data Recovered in New Container
+
+# 🏗️ Key Components
+
+• Docker Container → runs application
+• Bind Mount → host directory mapping
+• Docker Volume → Docker-managed persistent storage
+• docker volume create → creates persistent storage
+• --mount → attaches volume to container
+• docker inspect → verifies mounted storage
+
+# 🧱 Hands-On Implementation
+
+✔ Built Docker image successfully
+✔ Created Docker volume
+✔ Attached volume to container
+✔ Verified mounted storage
+✔ Tested persistent file storage
+✔ Recreated container using same volume
+✔ Verified data persistence successfully
+
+# ❌ Problems Faced
+# Problem — Application DLL Not Found
+Container tried to start a .NET application that was not properly built or copied into the image due to ENTRYPOINT path
+✅ Fix
+✔ Rebuilt Docker image properly
+✔ Verified Dockerfile build process
+✔ Ensured application DLL exists inside container
+✔ Recreated container using updated image
+
+**Application started successfully.
+
+# ✅ Validation
+
+✔ Container started successfully
+✔ Docker volume mounted successfully
+✔ Application accessible on mapped port
+✔ Persistent storage verified
+✔ Data survived container recreation
+✔ Docker commands executed successfully
+
+# 🔑 Key Learnings
+
+✔ Containers are temporary by default
+✔ Persistent storage should use Docker volumes
+✔ Docker volumes survive container deletion
+✔ Correct Docker CLI syntax is important
+✔ Dockerfile configuration directly affects container execution
+✔ Proper base images are required for application runtime
+✔ Volumes are preferred for production environments
+
+
+# 💡 Final Insight
+
+Docker containers should remain stateless whenever possible.Persistent application data should always be stored outside the container using Docker Volumes or external storage solutions.
