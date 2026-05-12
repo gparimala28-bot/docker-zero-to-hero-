@@ -1,0 +1,106 @@
+# 🚀 Docker Networking
+
+# Overview
+Docker networking allows containers to communicate with:
+* Other containers
+* Host machine
+* External users/internet
+
+Without networking:
+❌ Containers cannot communicate
+❌ Frontend cannot connect to backend
+❌ Applications inside containers are unreachable
+❌ APIs cannot connect to databases
+
+Docker networking also provides:
+✅ Isolation
+✅ Security
+
+# 🧠 Core Concept
+
+Docker connects containers using networks such as:
+* Bridge Network
+* Custom Bridge Network
+* Host Network
+* Overlay Network
+By default, Docker uses bridge network.
+
+#Types of Docker Networks 
+
+*Bridge Network:Default docker network. Docker automatically attaches containers to bridge network unless another network is specified.
+*Host Network :Container directly uses the host machine’s network instead of getting its own separate Docker network.
+ No isolation.
+*Overlay Network:Overlay network connects containers running on multiple Docker hosts/servers.
+ This allows containers on different servers to communicate like they are on the same network.
+* Custom Bridge Networks allows us to create a secure private network and Only selected containers can communicate.
+This ensures:
+✅ Controlled communication
+✅ Network isolation
+✅ Better security
+
+# 🏗️ Docker Networking Flow
+
+Container Created
+↓
+Docker Assigns IP Address
+↓
+Container Connected to Network
+↓
+Container Communicates with:
+Host
+Other Containers
+Internet
+↓
+Custom Networks Provide Isolation
+
+
+# 🏗️ Key Components
+
+• Docker Container → runs application
+• docker0 → default virtual bridge
+• Bridge Network → default Docker network
+• Custom Bridge Network → isolated network
+• docker network create → creates custom network
+• docker inspect → verifies IP/network details
+• ping → tests container connectivity
+• docker network ls → lists Docker networks
+
+# 🧱 what I implemented
+
+✔ Created login container
+✔ Created logout container
+✔ Verified bridge networking
+✔ Tested container communication successfully
+✔ Created secure custom network
+✔ Attached finance container to custom network
+✔ Verified network isolation successfully
+✔ Tested communication failure between isolated containers
+
+# ✅ Validation
+
+✔ Containers started successfully
+✔ Docker bridge network verified
+✔ Same-network communication verified
+✔ Custom network isolation verified
+✔ Docker networking commands executed successfully
+✔ Real-world security isolation concept understood
+
+# 🔑 Key Learnings
+
+✔ Docker automatically creates bridge network
+✔ Containers in same bridge network can communicate
+✔ Custom bridge networks provide isolation
+✔ Different networks improve security
+✔ docker inspect is useful for debugging
+✔ ping helps test connectivity
+
+# 💡 Final Insight
+
+Docker networking is the foundation of:
+
+* Microservices
+* Kubernetes networking
+* Secure container communication
+* Production DevOps architecture
+
+Production applications should use isolated custom networks so containers communicate only with required services.
