@@ -1,7 +1,6 @@
 # 🚀 Docker Persistent Storage Using Volumes
 
 # Overview
-
 Containers are ephemeral by nature.This means:
 * Containers can stop anytime
 * Containers can be deleted anytime
@@ -11,16 +10,13 @@ When a container is removed:
 ❌ Logs disappear
 ❌ Generated files disappear
 ❌ Application data is lost
-
-This creates storage persistence problems in real-world applications.
+**This creates storage persistence problems in real-world applications.
 
 ## 🧠 Core Concept
-
 Instead of storing data inside containers,Docker stores important data externally using:
 * Bind Mounts
 * Docker Volumes
 This ensures data survives even after container deletion.
-
 
 # 🏗️ Persistent Storage Flow
 
@@ -63,7 +59,6 @@ Container tried to start a .NET application that was not properly built or copie
 ✔ Verified Dockerfile build process
 ✔ Ensured application DLL exists inside container
 ✔ Recreated container using updated image
-
 **Application started successfully.
 
 # ✅ Validation
