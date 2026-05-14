@@ -1,0 +1,102 @@
+# 🚀 Docker Multi-Architecture Build Notes
+
+## 📌 Goal
+
+Learn how to build and push Docker images that support multiple CPU architectures using Docker Buildx.
+
+Supported platforms:
+- linux/amd64
+- linux/arm64
+
+# 🧠 Why Multi-Arch Images?
+Different devices use different architectures.
+Examples:
+- Windows/Linux laptops → AMD64
+- Apple Silicon Macs → ARM64
+- Raspberry Pi → ARM64
+
+A normal Docker image built on AMD64 may fail on ARM systems due to architecture mismatch.
+
+# ⚡ What is Docker Buildx?
+
+Docker Buildx is an advanced builder based on BuildKit used for:
+✅ Multi-platform image builds  
+✅ Manifest creation  
+✅ Cross-platform container support  
+
+# 🏗️ Workflow 
+
+Developer Machine
+      ↓
+Docker Buildx
+      ↓
+Build AMD64 + ARM64 Images
+      ↓
+Create Manifest
+      ↓
+Push to Docker Hub
+
+# 🔑 Concepts Learned
+
+## 1. Multi-Architecture Images
+One Docker image tag can contain multiple architecture-specific images.
+## 2. Manifest
+Manifest is metadata that helps Docker pull the correct image based on system architecture.
+## 3. Buildx Builder
+Multi-arch builds require:
+docker-container driver
+
+# 🧪 Commands Used
+
+## Verify Architecture
+uname -m
+
+## Verify Buildx
+docker buildx ls
+
+## Create Builder
+docker buildx create --name multiarch-builder --driver docker-container --use
+
+## Initialize Builder
+docker buildx inspect --bootstrap
+
+## Login to Docker Hub
+docker login
+
+## Build & Push Multi-Arch Image
+docker buildx build \
+--platform linux/amd64,linux/arm64 \
+-t username/multiarch-demo:v1 \
+--push .
+
+## Verify Manifest
+docker buildx imagetools inspect username/multiarch-demo:v1
+
+# 🚨 Errors Faced
+
+## Error:Multi-platform build is not supported for the docker driver
+ Created builder using docker-container driver.
+
+# ✅ Validation
+✔ Multi-arch image built successfully  
+✔ Images pushed to Docker Hub  
+✔ Manifest created successfully  
+✔ Docker Hub showing:
+   - linux/amd64
+   - linux/arm64
+
+# **Key Takeaways
+• Docker Buildx enables multi-platform builds  
+• One image tag can support multiple architectures  
+• Manifest helps Docker pull correct architecture image  
+• docker-container driver is required for multi-arch builds  
+• Layer caching improves build performance  
+
+# ** Final Insight
+
+Docker Multi-Architecture builds solve compatibility issues between different CPU architectures.
+Using Docker Buildx allows developers to build:
+- AMD64 images
+- ARM64 images
+using a single command: docker buildx build
+
